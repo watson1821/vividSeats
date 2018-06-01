@@ -12,7 +12,7 @@ class PokemonSearch extends Component {
                             <li key={index}>
                                 <div className="info">
                                     <h1>{pokemon.name}</h1>
-                                    <img src={pokemon.img} />
+                                    <img src={pokemon.img} alt=''/>
                                     { pokemon.types.map((type, index) => {
                                         return (
                                             <span key={index} className={ `type ${ type.toLowerCase() }` }>{ type }</span>
@@ -28,7 +28,7 @@ class PokemonSearch extends Component {
         );
     }
 
-    static PropTypes = {
+    static propTypes = {
         pokemons: PropTypes.arrayOf(PropTypes.shape(
             {
                 name: PropTypes.string,

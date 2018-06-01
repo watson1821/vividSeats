@@ -31,8 +31,9 @@ class PokemonContainer extends Component {
     }
 
     filter = (e) => {
-        const result = e.target.value == '' ? this.state.pokemons : this.state.pokemons.filter(pokemon => pokemon.name == inputValue);
-
+        const inputValue = e.target.value;
+        //var pattern = new RegExp("/\b"+ inputValue +"\b/");       //TODO: Add Regex to filter by name and by types
+        const result = inputValue === '' ? this.state.pokemons : this.state.pokemons.filter(pokemon => pokemon.name === inputValue) || this.state.pokemons.filter(pokemon => pokemon.types.filter(type => type.toLowerCase() === inputValue));        //TODO: Fix filter by type
         this.setState({filteredPokemons: result});
     }
 
